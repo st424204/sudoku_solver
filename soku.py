@@ -37,7 +37,16 @@ class Solver:
 			line = [ int(d) for d in ok[i].split("\n")[0].split()]
 			self.data.append(line)
 		self.data = np.array(self.data).astype(np.int8)
-
+	def get_string(self,ok):
+		self.__init__()
+		ok = list(ok)
+		for i in range(0,81,9):
+			self.data.append([ d for d in ok[i:i+9]])
+		self.data = np.array(self.data).astype(np.int8)
+	def get_data(self,tmp):
+		self.__init__()
+		self.data = tmp.reshape([9,9]);
+		self.data = np.array(self.data).astype(np.int8)
 	def solve(self):
 		try:
 			while(1):
